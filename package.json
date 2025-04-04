@@ -1,0 +1,23 @@
+{
+  "name": "poker-web-app",
+  "version": "1.0.0",
+  "description": "ポーカーウェブアプリケーション",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "poker",
+    "game",
+    "animejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "animejs": "^3.2.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

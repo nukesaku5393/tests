@@ -1,0 +1,210 @@
+/* ポーカーゲーム全体のスタイル */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e94560;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: #16213e;
+    margin-bottom: 15px;
+}
+
+/* ゲームエリアのスタイル */
+.game-area {
+    background-color: #0f3460;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.dealer-area, .player-area {
+    background-color: #16213e;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* ポーカーテーブルのスタイル */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    min-height: 150px;
+    margin: 20px 0;
+    position: relative;
+    background-color: #006633;
+    border-radius: 100px;
+    padding: 30px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 8px solid #8B4513;
+}
+
+/* カードのスタイル */
+.card {
+    width: 100px;
+    height: 140px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transform-origin: center bottom;
+    position: absolute;
+    /* カードの初期位置はテーブル外 */
+    left: -150px; 
+    opacity: 0;
+}
+
+/* ホールドされたカードのスタイル */
+.card.held {
+    box-shadow: 0 0 15px 5px #ffcc00;
+    border: 2px solid #ffcc00;
+}
+
+.hold-label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 204, 0, 0.8);
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.card.heart, .card.diamond {
+    color: #e94560;
+}
+
+.card.spade, .card.club {
+    color: #000;
+}
+
+.card-value {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.card-suit {
+    font-size: 32px;
+}
+
+/* カードデッキの位置 */
+.card-deck {
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    background-color: #16213e;
+    border-radius: 8px;
+    left: -120px;
+    top: calc(50% - 70px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* コントロールエリアのスタイル */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    background-color: #e94560;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #c81e45;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ステータスエリアのスタイル */
+.status {
+    text-align: center;
+    margin-top: 20px;
+    min-height: 60px;
+}
+
+#message {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e94560;
+}
+
+/* アニメーション用のスタイル */
+.card-back {
+    background-color: #16213e;
+    background-image: linear-gradient(45deg, #0f3460 25%, transparent 25%, transparent 75%, #0f3460 75%, #0f3460),
+                      linear-gradient(45deg, #0f3460 25%, transparent 25%, transparent 75%, #0f3460 75%, #0f3460);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    color: transparent;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-wrap: wrap;
+    }
+    
+    .card {
+        width: 80px;
+        height: 112px;
+        font-size: 20px;
+    }
+    
+    .controls {
+        flex-wrap: wrap;
+    }
+}
