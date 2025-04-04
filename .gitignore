@@ -28,3 +28,4 @@ build/
 # ログファイル
 logs/
 *.log
+LESSONS_LEARNED.md
