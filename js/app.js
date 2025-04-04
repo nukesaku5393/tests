@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     suitElement.textContent = '♣';
                     break;
                 case 'spade':
-                    suitElement.textContent = '♠';
+                    suitElement.textContent = '💩';
                     break;
             }
             
