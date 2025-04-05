@@ -87,11 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (heldCards.includes(index)) {
                     cardElement.classList.add('held');
                     
-                    // ホールドされたカードに「HOLD」表示を追加
-                    const holdLabel = document.createElement('div');
-                    holdLabel.classList.add('hold-label');
-                    holdLabel.textContent = 'HOLD';
-                    cardElement.appendChild(holdLabel);
+                    // ホールドされたカードにロックアイコンを追加
+                    const holdIcon = document.createElement('div');
+                    holdIcon.classList.add('hold-icon');
+                    holdIcon.textContent = '🔒';
+                    cardElement.appendChild(holdIcon);
                 }
             }
         }
@@ -109,21 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 heldCards = heldCards.filter(i => i !== index);
                 cardElement.classList.remove('held');
                 
-                // HOLDラベルを削除
-                const holdLabel = cardElement.querySelector('.hold-label');
-                if (holdLabel) {
-                    cardElement.removeChild(holdLabel);
+                // ホールドアイコンを削除
+                const holdIcon = cardElement.querySelector('.hold-icon');
+                if (holdIcon) {
+                    cardElement.removeChild(holdIcon);
                 }
             } else {
                 // ホールド設定
                 heldCards.push(index);
                 cardElement.classList.add('held');
                 
-                // HOLDラベルを追加
-                const holdLabel = document.createElement('div');
-                holdLabel.classList.add('hold-label');
-                holdLabel.textContent = 'HOLD';
-                cardElement.appendChild(holdLabel);
+                // ホールドアイコンを追加
+                const holdIcon = document.createElement('div');
+                holdIcon.classList.add('hold-icon');
+                holdIcon.textContent = '🔒';
+                cardElement.appendChild(holdIcon);
             }
         }
     };

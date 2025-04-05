@@ -87,21 +87,27 @@ h2 {
 
 /* ホールドされたカードのスタイル */
 .card.held {
-    box-shadow: 0 0 15px 5px #ffcc00;
-    border: 2px solid #ffcc00;
+    box-shadow: 0 0 8px rgba(0, 100, 255, 0.4);
+    border: 2px solid rgba(0, 100, 255, 0.6);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
 }
 
 .hold-label {
     position: absolute;
     bottom: 5px;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 204, 0, 0.8);
-    color: #000;
+    left: 5px;
     font-size: 14px;
     font-weight: bold;
-    text-align: center;
-    padding: 2px 0;
+    color: rgba(0, 100, 255, 0.8);
+}
+
+.hold-icon {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 16px;
+    color: rgba(0, 100, 255, 0.8);
 }
 
 .card.heart, .card.diamond {
@@ -134,16 +140,36 @@ h2 {
     z-index: 10;
 }
 
+/* カードの扇形配置 */
+.player-deck .card:nth-child(1) { 
+    transform: rotate(-15deg) translateY(5px); 
+}
+.player-deck .card:nth-child(2) { 
+    transform: rotate(-7deg) translateY(2px); 
+}
+.player-deck .card:nth-child(3) { 
+    transform: rotate(0deg); 
+}
+.player-deck .card:nth-child(4) { 
+    transform: rotate(7deg) translateY(2px); 
+}
+.player-deck .card:nth-child(5) { 
+    transform: rotate(15deg) translateY(5px); 
+}
+
 /* コントロールエリアのスタイル */
 .controls {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 16px;
     margin: 20px 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
-    background-color: #e94560;
+    background-color: #555;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -151,17 +177,27 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: all 0.3s ease;
+    min-width: 120px;
 }
 
 button:hover {
-    background-color: #c81e45;
-    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: scale(1.05);
 }
 
-button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-    transform: none;
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#draw-btn {
+    background-color: #ff3b6b;
+    font-size: 18px;
+    padding: 12px 24px;
+}
+
+#draw-btn:hover {
+    background-color: #e02555;
 }
 
 /* ステータスエリアのスタイル */
